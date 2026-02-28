@@ -956,37 +956,58 @@ body {
 /* ============================================================
    Inspector (right panel)
    ============================================================ */
+/* ============================================================
+   Inspector Layout & Sections
+   ============================================================ */
 .inspector {
   display: grid;
-  grid-template-rows: repeat(3, minmax(0, auto));
+  grid-template-rows: repeat(4, minmax(0, auto));
   align-content: start;
-  gap: 1px;
-  background: var(--line);
-}
-
-.inspector section {
-  padding: var(--space-4);
+  gap: 0;
   background: var(--surface);
 }
 
-/* TOC / Outline */
+.inspector-section {
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--line);
+}
+
+.inspector-section:last-child {
+  border-bottom: none;
+}
+
+/* ---- Shortcuts ---- */
+.shortcut-list li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-1) 0;
+}
+
+.shortcut-list li span {
+  color: var(--ink-muted);
+  font-size: 0.78rem;
+}
+
+/* ---- TOC / Outline ---- */
 .toc-list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 1px;
+  gap: 0;
 }
 
 .toc-list a {
   display: block;
-  padding: var(--space-1) var(--space-2);
-  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-3);
+  border-left: 2px solid var(--accent, #e2001a);
   text-decoration: none;
-  color: var(--ink-muted);
+  color: var(--ink);
   font-size: 0.8rem;
+  font-weight: 600;
   line-height: 1.4;
-  transition: background-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+  transition: background-color var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -995,17 +1016,38 @@ body {
 .toc-list a:hover {
   background: var(--surface-soft);
   color: var(--ink);
+  border-left-color: var(--ink);
 }
 
 .toc-list a[data-level="2"] {
-  padding-left: var(--space-4);
+  padding-left: var(--space-5);
+  border-left-color: var(--ink-muted);
+  font-weight: 500;
+  color: var(--ink-muted);
+  font-size: 0.78rem;
+}
+
+.toc-list a[data-level="2"]:hover {
+  color: var(--ink);
+  border-left-color: var(--ink);
 }
 
 .toc-list a[data-level="3"] {
-  padding-left: calc(var(--space-4) + var(--space-3));
+  padding-left: calc(var(--space-5) + var(--space-4));
+  border-left-color: transparent;
+  font-weight: 400;
+  color: var(--ink-muted);
   font-size: 0.75rem;
+  opacity: 0.8;
 }
 
+.toc-list a[data-level="3"]:hover {
+  opacity: 1;
+  color: var(--ink);
+  border-left-color: var(--line);
+}
+
+/* ---- Section Headers ---- */
 .inspector h2 {
   margin: 0 0 var(--space-3);
   text-transform: uppercase;
@@ -1015,6 +1057,7 @@ body {
   color: var(--ink-muted);
 }
 
+/* ---- Meta Lists (Backlinks, Links Out) ---- */
 .meta-list {
   margin: 0;
   padding: 0;

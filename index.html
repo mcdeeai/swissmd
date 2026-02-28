@@ -102,25 +102,25 @@
     <aside class="inspector" id="inspector-panel">
       <button id="inspector-toggle-btn" class="inspector-toggle" type="button" title="Toggle inspector">&#8250;</button>
       <div class="inspector-inner">
-        <section>
+        <section class="inspector-section inspector-shortcuts">
+          <h2>Shortcuts</h2>
+          <ul class="meta-list shortcut-list">
+            <li><kbd>Cmd/Ctrl</kbd> + <kbd>K</kbd> <span>Quick Open</span></li>
+            <li><kbd>Cmd/Ctrl</kbd> + <kbd>S</kbd> <span>Save</span></li>
+            <li><kbd>Cmd/Ctrl</kbd> + <kbd>N</kbd> <span>New Doc</span></li>
+          </ul>
+        </section>
+        <section class="inspector-section inspector-outline">
           <h2>Outline</h2>
           <nav id="toc-list" class="toc-list" aria-label="Table of contents"></nav>
         </section>
-        <section>
+        <section class="inspector-section">
           <h2>Backlinks</h2>
           <ul id="backlinks-list" class="meta-list"></ul>
         </section>
-        <section>
+        <section class="inspector-section">
           <h2>Links Out</h2>
           <ul id="links-out-list" class="meta-list"></ul>
-        </section>
-        <section>
-          <h2>Shortcuts</h2>
-          <ul class="meta-list">
-            <li><kbd>Cmd/Ctrl</kbd> + <kbd>K</kbd> Quick Open</li>
-            <li><kbd>Cmd/Ctrl</kbd> + <kbd>S</kbd> Save</li>
-            <li><kbd>Cmd/Ctrl</kbd> + <kbd>N</kbd> New Doc</li>
-          </ul>
         </section>
       </div>
     </aside>
