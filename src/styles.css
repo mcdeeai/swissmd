@@ -177,18 +177,27 @@ html[data-theme="blueprint-dark"] {
 }
 
 /* Blueprint grid pattern */
-html[data-theme="blueprint"] .app-shell,
+html[data-theme="blueprint"] .app-shell {
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255, 255, 255, 0.06) 39px, rgba(255, 255, 255, 0.06) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255, 255, 255, 0.06) 39px, rgba(255, 255, 255, 0.06) 40px);
+  background-color: var(--bg);
+}
+
 html[data-theme="blueprint-dark"] .app-shell {
   background-image:
-    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255, 255, 255, 0.05) 39px, rgba(255, 255, 255, 0.05) 40px),
-    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255, 255, 255, 0.05) 39px, rgba(255, 255, 255, 0.05) 40px);
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(91, 192, 235, 0.06) 39px, rgba(91, 192, 235, 0.06) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(91, 192, 235, 0.06) 39px, rgba(91, 192, 235, 0.06) 40px);
   background-color: var(--bg);
 }
 
 html[data-theme^="blueprint"] .sidebar,
 html[data-theme^="blueprint"] .workspace,
 html[data-theme^="blueprint"] .inspector {
-  background: var(--surface);
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255, 255, 255, 0.04) 39px, rgba(255, 255, 255, 0.04) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255, 255, 255, 0.04) 39px, rgba(255, 255, 255, 0.04) 40px);
+  background-color: var(--surface);
 }
 
 html[data-theme^="blueprint"] .prose a {
