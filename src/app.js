@@ -552,6 +552,7 @@ function scheduleAutosave() {
   }, 250);
 }
 
+let _previewDebounce = 0;
 function syncInputsToActiveDoc() {
   const doc = getActiveDoc();
   if (!doc) return;
@@ -560,12 +561,17 @@ function syncInputsToActiveDoc() {
   doc.updatedAt = Date.now();
   els.docTitleLabel.textContent = doc.title;
   renderBreadcrumbs();
-  renderPreview();
-  renderLinksPanels();
-  renderTOC();
   renderGutter();
   renderDocList();
   scheduleAutosave();
+
+  // Debounce expensive renders (preview, links, TOC) — 150ms
+  clearTimeout(_previewDebounce);
+  _previewDebounce = setTimeout(() => {
+    renderPreview();
+    renderLinksPanels();
+    renderTOC();
+  }, 150);
 }
 
 function renderGutter() {
@@ -616,7 +622,11 @@ function renderTOC() {
     })
     .join("");
 
-  // Smooth-scroll to heading on click
+}
+
+// TOC click handler — registered once via event delegation
+function _initTOCClickHandler() {
+  if (!els.tocList) return;
   els.tocList.addEventListener("click", (e) => {
     const link = e.target.closest("a");
     if (!link) return;
@@ -1037,6 +1047,7 @@ function init() {
 
   setMode(state.mode);
   bindEvents();
+  _initTOCClickHandler();
   renderActiveDoc();
 
   if (!window.showDirectoryPicker) {

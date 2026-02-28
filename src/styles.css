@@ -347,7 +347,7 @@ body {
 .app-shell {
   height: 100vh;
   display: grid;
-  grid-template-columns: 17rem minmax(0, 1fr) auto;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   gap: 1px;
   background: var(--line);
   overflow: hidden;
