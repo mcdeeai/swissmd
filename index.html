@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>McDee MD</title>
+  <link rel="stylesheet" href="./src/styles.css" />
+  <script defer src="./src/app.js"></script>
+</head>
+
+<body>
+  <div class="app-shell" id="app-shell">
+    <aside class="sidebar" id="sidebar-panel">
+      <button id="sidebar-toggle-btn" class="sidebar-toggle" type="button" title="Toggle sidebar">&#8249;</button>
+      <div class="sidebar-inner">
+        <header class="sidebar-header">
+          <h1>McDee MD</h1>
+          <p>Markdown Workspace</p>
+        </header>
+
+        <section class="sidebar-actions">
+          <button id="new-doc-btn" class="btn btn-primary" type="button">New Doc</button>
+          <button id="open-folder-btn" class="btn btn-soft" type="button">Open Folder</button>
+          <button id="save-doc-btn" class="btn btn-soft" type="button">Save</button>
+        </section>
+
+        <label class="search-wrap" for="doc-search">
+          <span>Search</span>
+          <input id="doc-search" type="search" placeholder="Search docs... (⌘K)" />
+        </label>
+
+        <nav id="doc-list" class="doc-list" aria-label="Documents"></nav>
+      </div>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar">
+        <div id="breadcrumb-container" class="doc-meta">
+          <strong id="doc-title-label">Untitled</strong>
+          <nav id="doc-breadcrumbs" class="breadcrumbs" aria-label="Breadcrumb"></nav>
+        </div>
+        <div class="workspace-controls">
+          <label class="theme-picker" for="theme-select">
+            <span>Theme</span>
+            <select id="theme-select" aria-label="Select theme">
+              <option value="swiss">Swiss Grid</option>
+              <option value="linen">Linen Notes</option>
+              <option value="blueprint">Blueprint</option>
+              <option value="blueprint-dark">Blueprint Dark</option>
+              <option value="midnight">Midnight</option>
+              <option value="brutalist">Brutalist</option>
+              <option value="brutalist-dark">Brutalist Dark</option>
+              <option value="system">System Auto</option>
+            </select>
+          </label>
+
+          <div class="topbar-actions">
+            <div class="mode-toggle" role="group" aria-label="Editor mode">
+              <button id="mode-edit-btn" class="btn btn-toggle" type="button">Edit</button>
+              <button id="mode-split-btn" class="btn btn-toggle" type="button">Split</button>
+              <button id="mode-preview-btn" class="btn btn-toggle is-active" type="button">Preview</button>
+              <button id="mode-read-btn" class="btn btn-toggle" type="button">Read</button>
+            </div>
+            <button id="export-html-btn" class="btn btn-soft" type="button">Export HTML</button>
+            <button id="export-pdf-btn" class="btn btn-soft" type="button">Export PDF</button>
+          </div>
+        </div>
+      </header>
+
+      <section id="editor-preview" class="editor-preview mode-preview">
+        <section class="editor-pane" aria-label="Markdown editor">
+          <label class="editor-title-wrap" for="doc-title-input">
+            <span>Title</span>
+            <input id="doc-title-input" type="text" placeholder="Document title" />
+          </label>
+          <div class="editor-body">
+            <div id="gutter" class="gutter" aria-hidden="true"></div>
+            <textarea id="editor" spellcheck="false" aria-label="Markdown editor"
+              placeholder="# Start writing..."></textarea>
+          </div>
+        </section>
+
+        <section class="preview-pane" aria-label="Markdown preview">
+          <article id="preview" class="prose"></article>
+        </section>
+      </section>
+    </main>
+
+    <aside class="inspector" id="inspector-panel">
+      <button id="inspector-toggle-btn" class="inspector-toggle" type="button" title="Toggle inspector">&#8250;</button>
+      <div class="inspector-inner">
+        <section>
+          <h2>Outline</h2>
+          <nav id="toc-list" class="toc-list" aria-label="Table of contents"></nav>
+        </section>
+        <section>
+          <h2>Backlinks</h2>
+          <ul id="backlinks-list" class="meta-list"></ul>
+        </section>
+        <section>
+          <h2>Links Out</h2>
+          <ul id="links-out-list" class="meta-list"></ul>
+        </section>
+        <section>
+          <h2>Shortcuts</h2>
+          <ul class="meta-list">
+            <li><kbd>Cmd/Ctrl</kbd> + <kbd>K</kbd> Quick Open</li>
+            <li><kbd>Cmd/Ctrl</kbd> + <kbd>S</kbd> Save</li>
+            <li><kbd>Cmd/Ctrl</kbd> + <kbd>N</kbd> New Doc</li>
+          </ul>
+        </section>
+      </div>
+    </aside>
+  </div>
+
+  <dialog id="quick-open-dialog">
+    <form method="dialog" class="quick-open-shell">
+      <header>
+        <strong>Quick Open</strong>
+        <small>Type title or content. Enter to open.</small>
+      </header>
+      <input id="quick-open-input" type="search" placeholder="Find document..." />
+      <ul id="quick-open-results"></ul>
+      <menu>
+        <button class="btn btn-soft" value="cancel" type="submit">Close</button>
+      </menu>
+    </form>
+  </dialog>
+</body>
+
+</html>
