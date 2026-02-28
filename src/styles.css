@@ -455,7 +455,8 @@ body {
 
 .inspector-inner {
   width: 15rem;
-  overflow: hidden;
+  height: 100vh;
+  overflow-y: auto;
   opacity: 1;
   transition: opacity var(--dur-base) var(--ease);
 }
@@ -511,15 +512,20 @@ body {
    Sidebar
    ============================================================ */
 .sidebar-header {
-  padding: var(--space-5);
+  padding: var(--space-6) var(--space-5);
   border-bottom: 1px solid var(--line);
 }
 
-.sidebar-header h1 {
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+.sidebar-header .app-logo {
+  height: 48px !important;
+  width: auto;
+  display: block;
   color: var(--ink);
+  transition: transform 0.2s ease;
+}
+
+.sidebar-header .app-logo:hover {
+  transform: scale(1.02);
 }
 
 .sidebar-header p {
@@ -1430,8 +1436,8 @@ textarea:focus-visible,
     width: 11rem;
   }
 
-  .sidebar-header h1 {
-    font-size: 0.82rem;
+  .sidebar-header .app-logo {
+    height: 36px !important;
   }
 
   .sidebar-header p {

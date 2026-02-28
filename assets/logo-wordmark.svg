@@ -1,0 +1,34 @@
+<svg width="240" height="60" viewBox="0 0 240 60" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .text { fill: currentColor; }
+    .accent { fill: #e2001a; }
+    .white { fill: white; }
+    .dot { fill: black; }
+  </style>
+  
+  <!-- Geometric 'McDee' -->
+  <!-- M -->
+  <path d="M10 42V18H20L28 30L36 18H46V42H38V28L28 40L18 28V42H10Z" class="text"/>
+  <!-- c -->
+  <path d="M54 34V38H68V42H50V26H68V30H54V34Z" class="text"/>
+  <!-- D -->
+  <path d="M74 18H84C92 18 96 22 96 30C96 38 92 42 84 42H74V18ZM82 36H84C88 36 88 33 88 30C88 27 88 24 84 24H82V36Z" class="text"/>
+  <!-- e -->
+  <path d="M102 34V30H116V26H98V42H116V38H102V34ZM102 34H112V34H102V34Z" class="text"/>
+  <path d="M112 34H102V34" class="text" stroke="currentColor" stroke-width="4"/>
+  <!-- second e -->
+  <path d="M122 34V30H136V26H118V42H136V38H122V34Z" class="text"/>
+  <path d="M132 34H122V34" class="text" stroke="currentColor" stroke-width="4"/>
+  
+  <!-- Red Block with Symbol M -->
+  <rect x="145" y="15" width="45" height="30" rx="1" class="accent"/>
+  <!-- Scaled version of the Icon M: 
+       Original icon was 512x512 with M path from 112 to 400.
+       In here, rect is at 145,15 with width 45, height 30.
+       Let's center a small geometric M inside it.
+  -->
+  <path d="M152 38V22H158L167.5 32L177 22H183V38H176V29L167.5 39L159 29V38H152Z" class="white"/>
+  
+  <!-- The Square Period -->
+  <rect x="195" y="37" width="8" height="8" class="dot"/>
+</svg>
