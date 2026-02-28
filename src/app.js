@@ -880,6 +880,13 @@ function bindEvents() {
     const target = event.target.closest("button[data-id]");
     if (!target) return;
     setActiveDoc(target.dataset.id);
+    if (window.innerWidth <= 820 && els.sidebar && !els.sidebar.classList.contains("is-collapsed")) {
+      els.sidebar.classList.add("is-collapsed");
+      if (els.sidebarToggleBtn) els.sidebarToggleBtn.title = "Show sidebar";
+      try {
+        localStorage.setItem("swissmd.sidebar.collapsed", "true");
+      } catch (_) { }
+    }
   });
 
   els.docTitleInput.addEventListener("input", syncInputsToActiveDoc);
@@ -942,7 +949,7 @@ function bindEvents() {
 
     try {
       const stored = localStorage.getItem("swissmd.sidebar.collapsed");
-      if (stored === "true") {
+      if (stored === "true" || (window.innerWidth <= 820 && stored === null)) {
         els.sidebar.classList.add("is-collapsed");
         els.sidebarToggleBtn.title = "Show sidebar";
       }
