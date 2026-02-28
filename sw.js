@@ -1,10 +1,13 @@
-const CACHE_NAME = 'mcdee-md-v3';
+const CACHE_NAME = 'mcdee-md-v4';
 const ASSETS = [
     './',
     './index.html',
     './src/app.js',
     './src/styles.css',
+    './assets/icons/icon-192.png',
+    './assets/icons/icon-512.png',
     './assets/icons/icon-512.svg',
+    './assets/icons/apple-touch-icon.png',
     './assets/logo-wordmark.svg',
     './manifest.json'
 ];
