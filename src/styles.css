@@ -128,8 +128,9 @@ html[data-theme="linen"] {
   --glass-border: #ddcfbd;
 }
 
-/* Linen horizontal line texture — main content only */
-html[data-theme="linen"] .workspace {
+/* Linen horizontal line texture — content area only */
+html[data-theme="linen"] .editor-pane,
+html[data-theme="linen"] .preview-pane {
   background-image:
     repeating-linear-gradient(0deg,
       transparent,
@@ -187,15 +188,17 @@ html[data-theme="blueprint-dark"] {
   --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.65);
 }
 
-/* Blueprint grid pattern — main content only */
-html[data-theme="blueprint"] .workspace {
+/* Blueprint grid pattern — content area only */
+html[data-theme="blueprint"] .editor-pane,
+html[data-theme="blueprint"] .preview-pane {
   background-image:
     repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255, 255, 255, 0.06) 39px, rgba(255, 255, 255, 0.06) 40px),
     repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255, 255, 255, 0.06) 39px, rgba(255, 255, 255, 0.06) 40px);
   background-color: var(--surface);
 }
 
-html[data-theme="blueprint-dark"] .workspace {
+html[data-theme="blueprint-dark"] .editor-pane,
+html[data-theme="blueprint-dark"] .preview-pane {
   background-image:
     repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(91, 192, 235, 0.06) 39px, rgba(91, 192, 235, 0.06) 40px),
     repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(91, 192, 235, 0.06) 39px, rgba(91, 192, 235, 0.06) 40px);
