@@ -1050,6 +1050,22 @@ function init() {
   _initTOCClickHandler();
   renderActiveDoc();
 
+  // Handle files opened via macOS Finder (PWA File Handling)
+  if ('launchQueue' in window) {
+    window.launchQueue.setConsumer(async (launchParams) => {
+      if (!launchParams.files.length) return;
+      for (const handle of launchParams.files) {
+        const file = await handle.getFile();
+        const content = await file.text();
+        const title = file.name.replace(/\.[^/.]+$/, "");
+
+        const doc = createDoc({ title, content });
+        state.docs.unshift(doc);
+        setActiveDoc(doc.id);
+      }
+    });
+  }
+
   if (!window.showDirectoryPicker) {
     els.openFolderBtn.disabled = true;
     els.openFolderBtn.title = "Folder access requires a Chromium browser.";
