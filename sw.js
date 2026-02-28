@@ -1,4 +1,4 @@
-const CACHE_NAME = 'mcdee-md-v1';
+const CACHE_NAME = 'mcdee-md-v2';
 const ASSETS = [
     './',
     './index.html',

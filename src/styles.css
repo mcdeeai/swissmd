@@ -441,6 +441,7 @@ body {
   position: relative;
   width: 15rem;
   min-width: 15rem;
+  height: 100%;
   overflow: hidden;
   transition: width var(--dur-slow) var(--ease), min-width var(--dur-slow) var(--ease), opacity var(--dur-slow) var(--ease);
   animation: fade-in-blur var(--dur-slow) var(--ease) both;
@@ -455,7 +456,7 @@ body {
 
 .inspector-inner {
   width: 15rem;
-  height: 100vh;
+  height: 100%;
   overflow-y: auto;
   opacity: 1;
   transition: opacity var(--dur-base) var(--ease);
